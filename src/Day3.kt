@@ -1,5 +1,4 @@
-package day3
-
+import day3_initial.*
 import java.lang.RuntimeException
 import kotlin.math.absoluteValue
 
@@ -49,7 +48,8 @@ class WireCrossingLocator {
         }
 
 
-        crossingCoordinates.sortBy { it.xPos.absoluteValue + it.yPos.absoluteValue }
+        crossingCoordinates.sortBy { it.xPos.absoluteValue + it.yPos.absoluteValue
+        }
         //Sorted by time delay or by absolute value for Part I of the puzzle
         //crossingCoordinates.sortBy { it.xPos.absoluteValue + it.yPos.absoluteValue }
 

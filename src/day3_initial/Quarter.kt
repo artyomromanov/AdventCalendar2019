@@ -1,4 +1,4 @@
-package day3
+package day3_initial
 
 sealed class Quarter(open val index: Int) {
     data class I(override val index: Int = 1) : Quarter(index)
