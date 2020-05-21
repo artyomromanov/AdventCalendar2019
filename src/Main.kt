@@ -6,7 +6,8 @@ fun main(args: Array<String>) {
     val requiredValue = 19690720;
 
     val intComputer = IntComputer(elementOneFactor, elementTwoFactor)
+    val wireFixer = WireCrossingLocator();
 
-    println(intComputer.calculateElementFactors(requiredValue))
+    println(wireFixer.locateCrossings())
 
 }
