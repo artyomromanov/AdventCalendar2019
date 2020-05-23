@@ -1,7 +1,6 @@
 package day5.operations
 
-import day5.DigitCode
-import day5.IntComputerTwo
+import day5.util.DigitCode
 import java.lang.RuntimeException
 
 abstract class Operation protected constructor(

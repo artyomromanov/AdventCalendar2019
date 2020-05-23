@@ -1,24 +1,24 @@
 package day5
 
 import day5.operations.OperationFactory
+import day5.util.DigitCode
 import java.io.File
 
-const val inputInstruction = 1
-
-class IntComputerTwo(input: Int = 1) {
+class IntComputerMarkII(input: Int = 1) {
 
     private val inputData = File("data/input_int_computer2")
-    private val proceduresList : MutableList<String>
+    private val proceduresList: MutableList<String>
 
     init {
         proceduresList = initializeProceduresList()
     }
 
-    companion object{
+    companion object {
         //Init operations map
         val allOperations: Map<Int, DigitCode> = mapOf(
             Pair(0, DigitCode.OP_CODE), Pair(1, DigitCode.OP_CODE_EXTRA), Pair(2, DigitCode.PARAM_ONE),
-            Pair(3, DigitCode.PARAM_TWO))
+            Pair(3, DigitCode.PARAM_TWO)
+        )
     }
 
     //Runs the new day2.IntComputer
@@ -30,7 +30,7 @@ class IntComputerTwo(input: Int = 1) {
 
             val operation = OperationFactory(proceduresList = proceduresList, cursor = opCursor).getOperation()
 
-            with(operation){
+            with(operation) {
                 readValues()
                 execute()
                 printOperationData()
@@ -40,11 +40,11 @@ class IntComputerTwo(input: Int = 1) {
         return 1
     }
 
-    private fun setCursor(cursor: () -> Int) : Int  {
+    private fun setCursor(cursor: () -> Int): Int {
         return cursor()
     }
 
-    private fun initializeProceduresList() : MutableList<String> {
+    private fun initializeProceduresList(): MutableList<String> {
         val list = mutableListOf<String>()
         inputData
             .readText()
@@ -55,4 +55,3 @@ class IntComputerTwo(input: Int = 1) {
         return list
     }
 }
-

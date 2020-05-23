@@ -1,6 +1,6 @@
 package day5.operations
 
-import day5.DigitCode
+import day5.util.DigitCode
 import day5.IntComputerTwo
 import java.lang.RuntimeException
 
