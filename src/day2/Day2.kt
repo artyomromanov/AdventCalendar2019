@@ -1,8 +1,10 @@
+package day2
+
 import java.io.File
 
-const val gravityBasevalue = 1090665;
-const val deltaElementOneValue = 300000;
-const val deltaElementTwoValue = 1;
+const val gravityBasevalue = 1090665
+const val deltaElementOneValue = 300000
+const val deltaElementTwoValue = 1
 
 
 class IntComputer (elementOne : Int, elementTwo : Int) {
@@ -24,7 +26,7 @@ class IntComputer (elementOne : Int, elementTwo : Int) {
             }
     }
 
-    //Runs the new IntComputer
+    //Runs the new day2.IntComputer
     fun compute(): Int {
 
         var opCursor = 0

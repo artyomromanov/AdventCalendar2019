@@ -1,4 +1,5 @@
-import day3_initial.*
+package day3_initial
+
 import java.lang.RuntimeException
 import kotlin.math.absoluteValue
 

@@ -1,3 +1,5 @@
+package day4
+
 import java.util.function.Predicate
 
 val passwordRange = 158126..624574
