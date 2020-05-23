@@ -1,3 +1,5 @@
+package day1
+
 import java.io.File
 
 object FuelCalculator {
@@ -13,6 +15,7 @@ object FuelCalculator {
             .split("\n")
             .forEach { intList.add(calculateFuelReq(it.trim().toInt())) }
     }
+
     //Calculate fuel recursively
     private fun calculateFuelReq(mass: Int): Int {
         val fuelRequired = mass/3 - 2
