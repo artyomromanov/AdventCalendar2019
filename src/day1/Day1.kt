@@ -15,8 +15,8 @@ object FuelCalculator {
             .split("\n")
             .forEach { intList.add(calculateFuelReq(it.trim().toInt())) }
     }
-    //Calculate fuel recursively
 
+    //Calculate fuel recursively
     private fun calculateFuelReq(mass: Int): Int {
         val fuelRequired = mass/3 - 2
         return if (fuelRequired < 0) {
