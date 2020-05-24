@@ -15,7 +15,7 @@ abstract class Operation protected constructor(
 
     abstract fun printOperationData()
 
-    abstract fun setCursor(): Int
+    abstract fun retrieveCursor(): Int
 
     //Reads particular value from procedures List. Used by abstract fun readValues()
     fun read(code: DigitCode, deltaIndex: Int, cursor: Int): Int {

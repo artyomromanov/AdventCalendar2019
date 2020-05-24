@@ -15,7 +15,6 @@ class Sum(
     private var inputOutput: Int? = null
 
     override fun readValues() {
-
         intA = super.read(DigitCode.PARAM_ONE, 1, cursor)
         intB = super.read(DigitCode.PARAM_TWO, 2, cursor)
         inputOutput = super.convert(proceduresList[cursor + 3])
@@ -29,11 +28,10 @@ class Sum(
         }
     }
 
-    override fun setCursor(): Int = 4
+    override fun retrieveCursor(): Int = cursor + 4
 
     override fun printOperationData() {
         println("Operation : Sum. $intA + $intB = ${intA!! + intB!!}}; Written at pos $inputOutput")
-        println("Changed value is now ${proceduresList[inputOutput!!]}")
         println("Operations map - $operationsMap")
     }
 }
