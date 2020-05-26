@@ -1,4 +1,4 @@
-package day5.operations
+package operations
 
 import day5.util.DigitCode
 import java.lang.RuntimeException

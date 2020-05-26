@@ -1,35 +1,18 @@
 package day5
 
-import day5.operations.OperationFactory
+import Computer
+import operations.OperationFactory
 import day5.util.DigitCode
-import java.io.File
 
-class IntComputerMarkII() {
+class IntComputerMarkII : Computer {
 
-    private val inputData = File("data/input_int_computer2")
+    private val filepath = "data/input_int_computer2"
     private val proceduresList: MutableList<String>
 
     init {
-        proceduresList = initializeProceduresList()
-        //paginateProcedures()
+        proceduresList = initializeData(filepath)
+        paginateProcedures(proceduresList)
     }
-
-    private fun paginateProcedures() {
-        var lineRow = 0
-        do {
-            var line = lineRow
-            do {
-                val shift = 8 - proceduresList[line].length
-                var spacing = ""
-                repeat(shift) { spacing += " " }
-                print("$line. ${proceduresList[line]}$spacing ")
-                line += 10
-            } while (line < proceduresList.size)
-            println()
-            lineRow++
-        } while (lineRow < 20)
-    }
-
 
     companion object {
         //Init operations map
@@ -40,14 +23,12 @@ class IntComputerMarkII() {
     }
 
     //Runs the new day2.IntComputer
-    fun runTests(): Int {
+    override fun runProgram(inputInstructions: List<Int>): Int {
         //Set cursor to 0
         var opCursor = 0
         //Begin program
         do {
-
-            val operation = OperationFactory(proceduresList = proceduresList, cursor = opCursor).getOperation()
-
+            val operation = OperationFactory(proceduresList = proceduresList, cursor = opCursor, inputInstruction = inputInstructions.first()).getOperation()
             with(operation) {
                 readValues()
                 execute()
@@ -56,17 +37,6 @@ class IntComputerMarkII() {
             opCursor = operation.retrieveCursor()
             println("Cursor value : $opCursor")
         } while (opCursor <= proceduresList.size)
-        return 1
-    }
-
-    private fun initializeProceduresList(): MutableList<String> {
-        val list = mutableListOf<String>()
-        inputData
-            .readText()
-            .split(",")
-            .forEach {
-                list.add(it.trim())
-            }
-        return list
+        return -1
     }
 }

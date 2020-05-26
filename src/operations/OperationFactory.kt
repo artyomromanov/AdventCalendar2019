@@ -1,17 +1,13 @@
-package day5.operations
+package operations
 
 import day5.IntComputerMarkII
 import day5.util.DigitCode
 import java.lang.RuntimeException
 
 //Factory to create operations. Returns an appropriate Operation judging by the OP_CODE
-class OperationFactory(private val proceduresList: MutableList<String>, val cursor: Int) {
+class OperationFactory(private val proceduresList: MutableList<String>, val cursor: Int, private val inputInstruction : Int) {
 
     private val operationsMap: MutableMap<DigitCode, Int>
-
-    //Input ID's
-    val inputInstruction = 1 //ID for AirCon
-    val inputInstruction2 = 5 //ID for Thermal Radiator controller
 
     //Initialize operations map upon creation of the Operation, and initialize the Factory
     init {
@@ -25,7 +21,7 @@ class OperationFactory(private val proceduresList: MutableList<String>, val curs
 
             1 -> Sum(operationsMap, proceduresList, cursor)
             2 -> Multiply(operationsMap, proceduresList, cursor)
-            3 -> Input(operationsMap, proceduresList, cursor, inputInstruction2)
+            3 -> Input(operationsMap, proceduresList, cursor, inputInstruction)
             4 -> Output(operationsMap, proceduresList, cursor)
             5 -> JumpIfTrue(operationsMap, proceduresList, cursor)
             6 -> JumpIfFalse(operationsMap, proceduresList, cursor)

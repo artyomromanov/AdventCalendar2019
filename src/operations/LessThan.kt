@@ -1,9 +1,9 @@
-package day5.operations
+package operations
 
 import day5.util.DigitCode
 import java.lang.RuntimeException
 
-class JumpIfFalse(
+class LessThan(
     override val operationsMap: MutableMap<DigitCode, Int>,
     override val proceduresList: MutableList<String>,
     override val cursor: Int
@@ -12,29 +12,26 @@ class JumpIfFalse(
 
     private var intA: Int? = null
     private var intB: Int? = null
-    private var deltaCursor: Int? = null
+    private var inputOutput: Int? = null
+
     override fun readValues() {
         intA = super.read(DigitCode.PARAM_ONE, 1, cursor)
         intB = super.read(DigitCode.PARAM_TWO, 2, cursor)
+        inputOutput = super.convert(proceduresList[cursor + 3])
     }
 
     override fun execute() {
-        if (intA == null || intB == null) {
+        if (inputOutput == null || intA == null || intB == null) {
             throw RuntimeException("Unassigned parameter value exception - necessary parameter is null")
         } else {
-            if (intA == 0) {
-                intB?.let { deltaCursor = it - cursor}
-            } else {
-                deltaCursor = 3
-            }
+            proceduresList[inputOutput!!] = if(intA!! < intB!!) 1.toString() else 0.toString()
         }
     }
 
-    override fun retrieveCursor(): Int = deltaCursor?.let { cursor + it }
-        ?: throw RuntimeException("Incorrect operation JumpIfFalse delta cursor exception - necessary parameter is null")
+    override fun retrieveCursor(): Int = cursor + 4
 
     override fun printOperationData() {
-        println("Operation : JumpIfFalse. IntA = $intA; IntB = $intB; Jumped to position ${cursor + deltaCursor!!}")
+        println("Operation : LessThan. $intA < $intB : ${intA!! < intB!!}}; Written ${if(intA!! < intB!!) "1" else "0"} at pos $inputOutput")
         println("Operations map - $operationsMap")
     }
 }

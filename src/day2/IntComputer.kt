@@ -1,28 +1,30 @@
 package day2
 
+import Computer
 import java.io.File
 
-class IntComputer (elementOne : Int, elementTwo : Int) {
+class IntComputer : Computer {
 
-    private val elementOne = elementOne
-        get() { return if(field in 0..99) field else -1 }
-    private val elementTwo = elementTwo
-        get() { return if(field in 0..99) field else -1 }
-
-    private val input = File("data/input_int_computer")
-    private val procedureList = mutableListOf<Int>()
+    private val filepath = "data/input_int_computer"
+    private val procedureList : MutableList<Int>
 
     init {
-        input
+        procedureList = initializeData(filepath)
+    }
+
+    //Initialize data for the IntComputer
+    override fun <T> initializeData(filepath: String): MutableList<T> {
+        File(filepath)
             .readText()
             .split(",")
             .forEach {
                 procedureList.add(it.trim().toInt())
             }
+        return procedureList as MutableList<T>
     }
 
     //Runs the new day2.IntComputer
-    fun compute(): Int {
+    override fun runProgram(inputInstructions: List<Int>) : Int{
 
         var opCursor = 0
         var writeCursor: Int? = null
@@ -31,8 +33,8 @@ class IntComputer (elementOne : Int, elementTwo : Int) {
 
         //change the required positions before running the program
         with(procedureList){
-            set(1, elementOne)
-            set(2, elementTwo)
+            set(1, inputInstructions[0])
+            set(2, inputInstructions[1])
         }
 
         //begin looping through the array
