@@ -1,13 +1,11 @@
 package day5.operations
-
 import day5.util.DigitCode
-import day5.inputInstruction
-import java.lang.RuntimeException
 
 class Input(
     override val operationsMap: MutableMap<DigitCode, Int>,
     override val proceduresList: MutableList<String>,
-    override val cursor: Int
+    override val cursor: Int,
+    private val input : Int
 ) :
     Operation(operationsMap, proceduresList, cursor) {
 
@@ -21,15 +19,14 @@ class Input(
         if (inputOutput == null) {
             throw RuntimeException("Unassigned parameter value exception - necessary parameter is null")
         } else {
-            proceduresList[inputOutput!!] = inputInstruction.toString()
+            proceduresList[inputOutput!!] = input.toString()
         }
     }
 
-    override fun setCursor(): Int = 2
+    override fun retrieveCursor(): Int = cursor + 2
 
     override fun printOperationData() {
-        println("Operation : Input - $inputInstruction written at pos $inputOutput")
-        println("Changed value is now ${proceduresList[inputOutput!!]}")
+        println("Operation : Input - $input written at pos $inputOutput")
         println("Operations map - $operationsMap")
     }
 }

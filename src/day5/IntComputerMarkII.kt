@@ -4,14 +4,32 @@ import day5.operations.OperationFactory
 import day5.util.DigitCode
 import java.io.File
 
-class IntComputerMarkII(input: Int = 1) {
+class IntComputerMarkII() {
 
     private val inputData = File("data/input_int_computer2")
     private val proceduresList: MutableList<String>
 
     init {
         proceduresList = initializeProceduresList()
+        //paginateProcedures()
     }
+
+    private fun paginateProcedures() {
+        var lineRow = 0
+        do {
+            var line = lineRow
+            do {
+                val shift = 8 - proceduresList[line].length
+                var spacing = ""
+                repeat(shift) { spacing += " " }
+                print("$line. ${proceduresList[line]}$spacing ")
+                line += 10
+            } while (line < proceduresList.size)
+            println()
+            lineRow++
+        } while (lineRow < 20)
+    }
+
 
     companion object {
         //Init operations map
@@ -35,13 +53,10 @@ class IntComputerMarkII(input: Int = 1) {
                 execute()
                 printOperationData()
             }
-            opCursor += setCursor { operation.setCursor() }
+            opCursor = operation.retrieveCursor()
+            println("Cursor value : $opCursor")
         } while (opCursor <= proceduresList.size)
         return 1
-    }
-
-    private fun setCursor(cursor: () -> Int): Int {
-        return cursor()
     }
 
     private fun initializeProceduresList(): MutableList<String> {

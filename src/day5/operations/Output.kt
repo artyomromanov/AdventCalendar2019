@@ -22,7 +22,7 @@ class Output(
         }
     }
 
-    override fun setCursor(): Int = 2
+    override fun retrieveCursor(): Int = cursor + 2
 
     override fun printOperationData() {
         println("Operation : Output - $inputOutput")
