@@ -1,34 +1,38 @@
 package day7
 
 import Computer
+import operations.Input
 import operations.OperationFactory
+import operations.Output
+import java.lang.RuntimeException
 
-class IntComputerAmplifier : Computer {
+class IntComputerAmplifier(filepath : String) : Computer {
 
-    private val filepath = "data/input_int_computer_amplifier"
-    private val proceduresList: MutableList<String>
-
-    init {
-        proceduresList = initializeData(filepath)
-    }
+    private val proceduresList: MutableList<String> = initializeData(filepath)
 
     override fun runProgram(inputInstructions: List<Int>): Int {
         //Set cursor to 0
         var opCursor = 0
+        //Input operation counter
+        var inputCounter = 0
+        var outputSignal = -1
         //Begin program
         do {
-            val operation = OperationFactory(
-                proceduresList, opCursor, inputInstructions.first()
-            ).getOperation()
-
+            val operation = OperationFactory(proceduresList, opCursor).getOperation()
+            if (operation is Input) {
+                operation.input = inputInstructions[inputCounter]
+                //println("Input $inputCounter")
+                inputCounter++
+                inputCounter %=2
+            }
             with(operation) {
                 readValues()
                 execute()
-                printOperationData()
+                //printOperationData()
             }
+            if (operation is Output) outputSignal = operation.inputOutput ?: -1
             opCursor = operation.retrieveCursor()
-            println("Cursor value : $opCursor")
-        } while (opCursor <= proceduresList.size)
-        return -1
+        } while (opCursor != -1)
+        return if (outputSignal != -1) outputSignal else -1
     }
 }

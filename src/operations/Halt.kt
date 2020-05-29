@@ -1,11 +1,12 @@
 package operations
-import day5.util.DigitCode
 
-class Input(
+import day5.util.DigitCode
+import java.lang.RuntimeException
+
+class Halt(
     override val operationsMap: MutableMap<DigitCode, Int>,
     override val proceduresList: MutableList<String>,
-    override val cursor: Int,
-    var input : Int
+    override val cursor: Int
 ) :
     Operation(operationsMap, proceduresList, cursor) {
 
@@ -16,17 +17,12 @@ class Input(
     }
 
     override fun execute() {
-        if (inputOutput == null) {
-            throw RuntimeException("Unassigned parameter value exception - necessary parameter is null")
-        } else {
-            proceduresList[inputOutput!!] = input.toString()
-        }
+        //Any logging that is required after the program halts can be input here
     }
 
-    override fun retrieveCursor(): Int = cursor + 2
+    override fun retrieveCursor(): Int = -1
 
     override fun printOperationData() {
-        println("Operation : Input - $input written at pos $inputOutput")
         println("Operations map - $operationsMap")
     }
 }

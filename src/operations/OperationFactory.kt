@@ -2,10 +2,11 @@ package operations
 
 import day5.IntComputerMarkII
 import day5.util.DigitCode
+import day7.IntComputerAmplifier
 import java.lang.RuntimeException
 
 //Factory to create operations. Returns an appropriate Operation judging by the OP_CODE
-class OperationFactory(private val proceduresList: MutableList<String>, val cursor: Int, private val inputInstruction : Int) {
+class OperationFactory(private val proceduresList: MutableList<String>, val cursor: Int, var inputInstruction : Int = 0) {
 
     private val operationsMap: MutableMap<DigitCode, Int>
 
@@ -27,8 +28,7 @@ class OperationFactory(private val proceduresList: MutableList<String>, val curs
             6 -> JumpIfFalse(operationsMap, proceduresList, cursor)
             7 -> LessThan(operationsMap, proceduresList, cursor)
             8 -> Equals(operationsMap, proceduresList, cursor)
-
-            9 -> throw RuntimeException("Program Halted! For TEST output see above.")
+            9 -> Halt(operationsMap,proceduresList,cursor)
             else -> throw RuntimeException("Incorrect operation creation exception")
         }
     }

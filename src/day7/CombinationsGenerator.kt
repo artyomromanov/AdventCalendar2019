@@ -1,6 +1,6 @@
 package day7
 
-class Amplifier(setOfCombinations: Set<Int>) {
+class CombinationsGenerator(setOfCombinations: Set<Int>) {
 
     val combinationsList: List<List<Int>>
 

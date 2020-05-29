@@ -10,7 +10,7 @@ class Output(
 ) :
     Operation(operationsMap, proceduresList, cursor) {
 
-    private var inputOutput: Int? = null
+    var inputOutput: Int? = null
 
     override fun readValues() {
         inputOutput = super.read(DigitCode.PARAM_ONE, 1, cursor)
