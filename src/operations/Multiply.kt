@@ -33,6 +33,5 @@ class Multiply(
 
     override fun printOperationData() {
         println("Operation : Multiply. $intA * $intB = ${intA!! * intB!!} }; written at pos $inputOutput")
-        println("Operations map - $operationsMap")
     }
 }

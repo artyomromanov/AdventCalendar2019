@@ -30,5 +30,4 @@ interface Computer {
             lineRow++
         } while (lineRow < maxLineRow)
     }
-
 }

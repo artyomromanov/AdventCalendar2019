@@ -32,6 +32,5 @@ class LessThan(
 
     override fun printOperationData() {
         println("Operation : LessThan. $intA < $intB : ${intA!! < intB!!}}; Written ${if(intA!! < intB!!) "1" else "0"} at pos $inputOutput")
-        println("Operations map - $operationsMap")
     }
 }

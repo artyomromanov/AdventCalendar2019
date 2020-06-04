@@ -32,6 +32,5 @@ class Sum(
 
     override fun printOperationData() {
         println("Operation : Sum. $intA + $intB = ${intA!! + intB!!}}; Written at pos $inputOutput")
-        println("Operations map - $operationsMap")
     }
 }

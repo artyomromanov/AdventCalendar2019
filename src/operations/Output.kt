@@ -26,7 +26,5 @@ class Output(
 
     override fun printOperationData() {
         println("Operation : Output - $inputOutput")
-        println("<<<TEST OUTPUT - $inputOutput - >>>>>>>>>>>")
-        println("Operations map - $operationsMap")
     }
 }

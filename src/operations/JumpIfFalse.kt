@@ -35,6 +35,5 @@ class JumpIfFalse(
 
     override fun printOperationData() {
         println("Operation : JumpIfFalse. IntA = $intA; IntB = $intB; Jumped to position ${cursor + deltaCursor!!}")
-        println("Operations map - $operationsMap")
     }
 }
