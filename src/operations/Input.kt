@@ -27,6 +27,5 @@ class Input(
 
     override fun printOperationData() {
         println("Operation : Input - $input written at pos $inputOutput")
-        println("Operations map - $operationsMap")
     }
 }

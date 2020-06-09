@@ -13,16 +13,15 @@ class Halt(
     private var inputOutput: Int? = null
 
     override fun readValues() {
-        inputOutput = super.convert(proceduresList[cursor + 1])
+        inputOutput = -1 //Program is halted
     }
 
     override fun execute() {
-        //Any logging that is required after the program halts can be input here
+        //throw RuntimeException("Program halted. Input/Output $inputOutput")
     }
 
     override fun retrieveCursor(): Int = -1
 
     override fun printOperationData() {
-        println("Operations map - $operationsMap")
     }
 }
