@@ -25,7 +25,7 @@ class Amplifier(proceduresList: MutableList<String>, val ampIndex: Int, val phas
             with(operation) {
                 readValues()
                 execute()
-                //printOperationData()
+                printOperationData()
             }
             if (operation is Output) {
                 outputSignal = operation.inputOutput ?: -1

@@ -16,8 +16,8 @@ class Equals(
     private var inputOutput: Int? = null
 
     override fun readValues() {
-        intA = super.read(DigitCode.PARAM_ONE, 1, cursor)
-        intB = super.read(DigitCode.PARAM_TWO, 2, cursor)
+        intA = super.read(DigitCode.PARAM_ONE, 1)
+        intB = super.read(DigitCode.PARAM_TWO, 2)
         inputOutput = super.convert(proceduresList[cursor + 3])
     }
 

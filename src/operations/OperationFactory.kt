@@ -14,7 +14,7 @@ class OperationFactory(private val proceduresList: MutableList<String>, val curs
         operationsMap = readOperationParameters()
     }
     //Distinguish between OP_CODE 09 and 99
-    private val operationType = if(operationsMap[DigitCode.OP_CODE_EXTRA] == 0) operationsMap[DigitCode.OP_CODE] else 99
+    private val operationType = if(operationsMap.getOrDefault(DigitCode.OP_CODE_EXTRA, 0) == 0) operationsMap[DigitCode.OP_CODE] else 99
 
     fun getOperation(): Operation {
         return when (operationType) {

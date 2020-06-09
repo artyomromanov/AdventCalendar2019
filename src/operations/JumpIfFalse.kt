@@ -15,8 +15,8 @@ class JumpIfFalse(
     private var intB: Int? = null
     private var deltaCursor: Int? = null
     override fun readValues() {
-        intA = super.read(DigitCode.PARAM_ONE, 1, cursor)
-        intB = super.read(DigitCode.PARAM_TWO, 2, cursor)
+        intA = super.read(DigitCode.PARAM_ONE, 1)
+        intB = super.read(DigitCode.PARAM_TWO, 2)
     }
 
     override fun execute() {

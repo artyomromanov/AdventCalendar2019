@@ -14,7 +14,7 @@ class Output(
     var inputOutput: Int? = null
 
     override fun readValues() {
-        inputOutput = super.read(DigitCode.PARAM_ONE, 1, cursor)
+        inputOutput = super.read(DigitCode.PARAM_ONE, 1)
     }
 
     override fun execute() {

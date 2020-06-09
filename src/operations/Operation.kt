@@ -19,7 +19,7 @@ abstract class Operation protected constructor(
     abstract fun retrieveCursor(): Int
 
     //Reads particular value from procedures List. Used by abstract fun readValues()
-    fun read(code: DigitCode, deltaIndex: Int, cursor: Int): Int {
+    fun read(code: DigitCode, deltaIndex: Int): Int {
         val readCursor = convert(proceduresList[cursor + deltaIndex])
         return when (operationsMap.getOrDefault(code, 0)) {
             0 -> convert(proceduresList[readCursor])  //Position mode

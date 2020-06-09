@@ -10,7 +10,6 @@ object AmplifierCombinationsTester {
     private val generatorOne = CombinationsGenerator(phaseSettings)
     private val generatorTwo = CombinationsGenerator(feedbackLoopPhaseSettings)
 
-
     //part one task
     fun generateMaximumSignal(): Long {
         var amplifiedSignalResult = 0

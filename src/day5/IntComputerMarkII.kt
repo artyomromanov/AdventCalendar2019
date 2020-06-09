@@ -28,7 +28,8 @@ class IntComputerMarkII : Computer {
             }
             opCursor = operation.retrieveCursor()
             println("Cursor value : $opCursor")
-        } while (opCursor <= proceduresList.size)
+        } while (opCursor <= proceduresList.size && opCursor != -1)
+        println("Program halted.")
         return -1
     }
 }

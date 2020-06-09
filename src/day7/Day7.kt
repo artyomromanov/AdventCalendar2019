@@ -18,9 +18,11 @@ val testSequenceFive = listOf(9, 7, 8, 5, 6)
 
 fun main() {
 
-    //println(AmplifierCombinationsTester.generateMaximumLoopedSignal())
+    //Task Part 1
+    println(AmplifierCombinationsTester.generateMaximumSignal())
 
-    println(AmplifierCombinationsTester.generateMaximumFeedbackLoopSignal())
+    //Task Part 2
+    //println(AmplifierCombinationsTester.generateMaximumFeedbackLoopSignal())
 
     //Test One
     //println(AmplifierCombinationsTester.generateMaximumTestSignal(testFilepathOne, testSequenceOne))
