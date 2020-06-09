@@ -8,7 +8,7 @@ object AmplifierCombinationsTester {
     private val feedbackLoopPhaseSettings = setOf(5, 6, 7, 8, 9)
 
     private val generatorOne = CombinationsGenerator(phaseSettings)
-    val generatorTwo = CombinationsGenerator(feedbackLoopPhaseSettings)
+    private val generatorTwo = CombinationsGenerator(feedbackLoopPhaseSettings)
 
 
     //part one task
@@ -42,7 +42,6 @@ object AmplifierCombinationsTester {
             }
             var i = 0
             do {
-
                 val signal = amplifiers[i].runProgram(currentSignal)
                 if(signal != -1) currentSignal = signal else break
                 if (currentSignal > maximumFeedbackLoopSignal) {
