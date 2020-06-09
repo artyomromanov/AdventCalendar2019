@@ -1,6 +1,6 @@
 package day2
 
-import Computer
+import computer.Computer
 import java.io.File
 
 class IntComputer : Computer {

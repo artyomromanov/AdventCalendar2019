@@ -1,6 +1,6 @@
 package day7
 
-import Computer
+import computer.Computer
 import operations.Input
 import operations.OperationFactory
 import operations.Output
@@ -35,8 +35,6 @@ class IntComputerAmplifier(filepath: String) : Computer {
             //println("Cursor value is $opCursor")
 
         } while (opCursor != -1)
-
-
         return outputSignal
     }
 }

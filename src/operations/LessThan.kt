@@ -1,14 +1,15 @@
 package operations
 
-import day5.util.DigitCode
+import util.DigitCode
 import java.lang.RuntimeException
 
 class LessThan(
     override val operationsMap: MutableMap<DigitCode, Int>,
     override val proceduresList: MutableList<String>,
-    override val cursor: Int
+    override val cursor: Int,
+    relativeBase: Int
 ) :
-    Operation(operationsMap, proceduresList, cursor) {
+    Operation(operationsMap, proceduresList, cursor, relativeBase) {
 
     private var intA: Int? = null
     private var intB: Int? = null
@@ -24,13 +25,13 @@ class LessThan(
         if (inputOutput == null || intA == null || intB == null) {
             throw RuntimeException("Unassigned parameter value exception - necessary parameter is null")
         } else {
-            proceduresList[inputOutput!!] = if(intA!! < intB!!) 1.toString() else 0.toString()
+            proceduresList[inputOutput!!] = if (intA!! < intB!!) 1.toString() else 0.toString()
         }
     }
 
     override fun retrieveCursor(): Int = cursor + 4
 
     override fun printOperationData() {
-        println("Operation : LessThan. $intA < $intB : ${intA!! < intB!!}}; Written ${if(intA!! < intB!!) "1" else "0"} at pos $inputOutput")
+        println("Operation : LessThan. $intA < $intB : ${intA!! < intB!!}}; Written ${if (intA!! < intB!!) "1" else "0"} at pos $inputOutput")
     }
 }

@@ -1,14 +1,14 @@
 package operations
 
-import day5.util.DigitCode
-import java.lang.RuntimeException
+import util.DigitCode
 
 class Halt(
     override val operationsMap: MutableMap<DigitCode, Int>,
     override val proceduresList: MutableList<String>,
-    override val cursor: Int
+    override val cursor: Int,
+    relativeBase: Int
 ) :
-    Operation(operationsMap, proceduresList, cursor) {
+    Operation(operationsMap, proceduresList, cursor, relativeBase) {
 
     private var inputOutput: Int? = null
 

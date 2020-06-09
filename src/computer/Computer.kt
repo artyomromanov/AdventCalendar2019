@@ -1,3 +1,5 @@
+package computer
+
 import java.io.File
 
 interface Computer {

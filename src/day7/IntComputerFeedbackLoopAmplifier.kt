@@ -1,9 +1,6 @@
 package day7
 
-import Computer
-import operations.Input
-import operations.OperationFactory
-import operations.Output
+import computer.Computer
 
 class IntComputerFeedbackLoopAmplifier(filepath: String) : Computer {
 

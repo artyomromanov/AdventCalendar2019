@@ -1,13 +1,14 @@
 package operations
-import day5.util.DigitCode
+import util.DigitCode
 
 class Input(
     override val operationsMap: MutableMap<DigitCode, Int>,
     override val proceduresList: MutableList<String>,
     override val cursor: Int,
+    relativeBase: Int,
     var input : Int
 ) :
-    Operation(operationsMap, proceduresList, cursor) {
+    Operation(operationsMap, proceduresList, cursor, relativeBase) {
 
     private var inputOutput: Int? = null
 

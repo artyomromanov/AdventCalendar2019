@@ -1,13 +1,14 @@
 package operations
 
-import day5.util.DigitCode
+import util.DigitCode
 import java.lang.RuntimeException
 
 class Multiply(
     override val operationsMap: MutableMap<DigitCode, Int>,
     override val proceduresList: MutableList<String>,
-    override val cursor: Int
-) : Operation(operationsMap, proceduresList, cursor) {
+    override val cursor: Int,
+    relativeBase: Int
+) : Operation(operationsMap, proceduresList, cursor, relativeBase) {
 
     private var intA: Int? = null
     private var intB: Int? = null

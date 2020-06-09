@@ -1,8 +1,8 @@
 package day5
 
-import Computer
+import computer.Computer
 import operations.OperationFactory
-import day5.util.DigitCode
+import util.DigitCode
 
 class IntComputerMarkII : Computer {
 
@@ -12,14 +12,6 @@ class IntComputerMarkII : Computer {
     init {
         proceduresList = initializeData(filepath)
         paginateProcedures(proceduresList)
-    }
-
-    companion object {
-        //Init operations map
-        val allOperations: Map<Int, DigitCode> = mapOf(
-            Pair(0, DigitCode.OP_CODE), Pair(1, DigitCode.OP_CODE_EXTRA), Pair(2, DigitCode.PARAM_ONE),
-            Pair(3, DigitCode.PARAM_TWO)
-        )
     }
 
     //Runs the new day2.IntComputer
